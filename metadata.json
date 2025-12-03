@@ -1,5 +1,5 @@
 {
-  "name": "ReadToSpeak",
+  "name": "AIBRZE SPEAK",
   "description": "A comprehensive AI assistant that reads documents aloud, holds real-time voice conversations, and searches the web using Gemini 2.5 models.",
   "requestFramePermissions": [
     "camera",
