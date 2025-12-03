@@ -68,8 +68,9 @@ const LiveSession: React.FC = () => {
   const connectToLive = async () => {
     setStatus('Initializing audio...');
     try {
-      inputAudioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 16000 });
-      outputAudioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
+      // Use standard AudioContext, removing legacy webkit fallback
+      inputAudioContextRef.current = new window.AudioContext({ sampleRate: 16000 });
+      outputAudioContextRef.current = new window.AudioContext({ sampleRate: 24000 });
       
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       streamRef.current = stream;

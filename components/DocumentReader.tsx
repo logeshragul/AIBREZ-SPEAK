@@ -115,7 +115,8 @@ const DocumentReader: React.FC = () => {
     setLoadingAudio(true);
     try {
       if (!audioContextRef.current) {
-        audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+        // Use standard AudioContext
+        audioContextRef.current = new window.AudioContext();
       }
       
       const audioData = await generateSpeech(textToRead, selectedVoice);
